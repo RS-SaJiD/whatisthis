@@ -1,0 +1,208 @@
+name: generate all palette previews
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: github-light
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: github-light
+          outputs: dist/github-light.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: github-dark
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: github-dark
+          outputs: dist/github-dark.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: gitlab-light
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: gitlab-light
+          outputs: dist/gitlab-light.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: gitlab-dark
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: gitlab-dark
+          outputs: dist/gitlab-dark.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: forgejo-light
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: forgejo-light
+          outputs: dist/forgejo-light.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: forgejo-dark
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: forgejo-dark
+          outputs: dist/forgejo-dark.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: codeberg-light
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: codeberg-light
+          outputs: dist/codeberg-light.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: codeberg-dark
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: codeberg-dark
+          outputs: dist/codeberg-dark.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: red-github-light
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: red-github-light
+          outputs: dist/red-github-light.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: red-github-dark
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: red-github-dark
+          outputs: dist/red-github-dark.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: halloween-light
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: halloween-light
+          outputs: dist/halloween-light.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: halloween-dark
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: halloween-dark
+          outputs: dist/halloween-dark.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: winter-light
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: winter-light
+          outputs: dist/winter-light.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: winter-dark
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: winter-dark
+          outputs: dist/winter-dark.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: one-dark-pro
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: one-dark-pro
+          outputs: dist/one-dark-pro.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: synthwave
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: synthwave
+          outputs: dist/synthwave.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: dracula
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: dracula
+          outputs: dist/dracula.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: monokai
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: monokai
+          outputs: dist/monokai.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: nord
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: nord
+          outputs: dist/nord.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: tokyo-night
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: tokyo-night
+          outputs: dist/tokyo-night.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: catppuccin
+        uses: RS-SaJiD/snake@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          palette: catppuccin
+          outputs: dist/catppuccin.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: push to output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: snake-assets
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
