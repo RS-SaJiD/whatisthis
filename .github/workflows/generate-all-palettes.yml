@@ -1,36 +1,44 @@
-name: generate animation
+name: generate all dark palette previews
 
 on:
   schedule:
-    - cron: "0 */24 * * *" 
-  
+    - cron: "0 */24 * * *"
+
   workflow_dispatch:
-  
+
   push:
     branches:
-    - main
-    
+      - main
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    
+
     steps:
-      - name: generate github-contribution-grid-snake.svg
+      - name: generate snake animations (all dark palettes)
         uses: RS-SaJiD/snake@main
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-contribution-grid-snake.svg?palette=winter-dark
-            dist/github-contribution-grid-snake.svg?palette=halloween-dark
-            dist/github-contribution-grid-snake.svg?palette=github-dark-red
-            dist/github-contribution-grid-snake.svg?palette=synthwave
-            dist/github-contribution-grid-snake.svg?palette=dracula
+            dist/github-dark.svg?palette=github-dark
+            dist/gitlab-dark.svg?palette=gitlab-dark
+            dist/forgejo-dark.svg?palette=forgejo-dark
+            dist/codeberg-dark.svg?palette=codeberg-dark
+            dist/red-github-dark.svg?palette=red-github-dark
+            dist/halloween-dark.svg?palette=halloween-dark
+            dist/winter-dark.svg?palette=winter-dark
+            dist/one-dark-pro.svg?palette=one-dark-pro
+            dist/synthwave.svg?palette=synthwave
+            dist/dracula.svg?palette=dracula
+            dist/monokai.svg?palette=monokai
+            dist/nord.svg?palette=nord
+            dist/tokyo-night.svg?palette=tokyo-night
+            dist/catppuccin.svg?palette=catppuccin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: push github-contribution-grid-snake.svg to the output branch
+
+      - name: push to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: snake-assets
