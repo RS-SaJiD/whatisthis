@@ -1,4 +1,4 @@
-name: generate all dark palette previews
+name: generate all palette gifs
 
 on:
   schedule:
@@ -13,28 +13,35 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
-      - name: generate snake animations (all dark palettes)
+      - name: generate snake gifs (all palettes, light + dark)
         uses: RS-SaJiD/snake@main
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-dark.svg?palette=github-dark
-            dist/gitlab-dark.svg?palette=gitlab-dark
-            dist/forgejo-dark.svg?palette=forgejo-dark
-            dist/codeberg-dark.svg?palette=codeberg-dark
-            dist/red-github-dark.svg?palette=red-github-dark
-            dist/halloween-dark.svg?palette=halloween-dark
-            dist/winter-dark.svg?palette=winter-dark
-            dist/one-dark-pro.svg?palette=one-dark-pro
-            dist/synthwave.svg?palette=synthwave
-            dist/dracula.svg?palette=dracula
-            dist/monokai.svg?palette=monokai
-            dist/nord.svg?palette=nord
-            dist/tokyo-night.svg?palette=tokyo-night
-            dist/catppuccin.svg?palette=catppuccin
+            dist/github-light.gif?palette=github-light
+            dist/github-dark.gif?palette=github-dark
+            dist/gitlab-light.gif?palette=gitlab-light
+            dist/gitlab-dark.gif?palette=gitlab-dark
+            dist/forgejo-light.gif?palette=forgejo-light
+            dist/forgejo-dark.gif?palette=forgejo-dark
+            dist/codeberg-light.gif?palette=codeberg-light
+            dist/codeberg-dark.gif?palette=codeberg-dark
+            dist/red-github-light.gif?palette=red-github-light
+            dist/red-github-dark.gif?palette=red-github-dark
+            dist/halloween-light.gif?palette=halloween-light
+            dist/halloween-dark.gif?palette=halloween-dark
+            dist/winter-light.gif?palette=winter-light
+            dist/winter-dark.gif?palette=winter-dark
+            dist/one-dark-pro.gif?palette=one-dark-pro
+            dist/synthwave.gif?palette=synthwave
+            dist/dracula.gif?palette=dracula
+            dist/monokai.gif?palette=monokai
+            dist/nord.gif?palette=nord
+            dist/tokyo-night.gif?palette=tokyo-night
+            dist/catppuccin.gif?palette=catppuccin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
