@@ -1,0 +1,36 @@
+name: Web Screen Recorder
+
+on:
+  workflow_dispatch: # এর ফলে তুমি নিজে বাটনে ক্লিক করে এটি রান করতে পারবে
+  # schedule:
+  #   - cron: '0 * * * *' # চাইলে প্রতি ঘন্টায় বা নির্দিষ্ট সময়ে অটো রান করাতে পারো
+
+jobs:
+  record-screen:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-node-version: '20'
+
+    - name: Install Dependencies
+      run: |
+        npm install playwright
+
+    - name: Install Playwright Chromium Browser
+      run: npx playwright install chromium --with-deps
+
+    - name: Run Recorder Script
+      run: node record.js
+
+    - name: Upload Video Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: website-hd-recording
+        path: ./videos/
+
