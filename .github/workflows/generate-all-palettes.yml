@@ -30,18 +30,7 @@ jobs:
             dist/winter-light.gif?palette=winter-light
             dist/github-dark.svg?palette=github-dark
             dist/gitlab-dark.svg?palette=gitlab-dark
-            dist/forgejo-dark.svg?palette=forgejo-dark
-            dist/codeberg-dark.svg?palette=codeberg-dark
-            dist/red-github-dark.svg?palette=red-github-dark
-            dist/halloween-dark.svg?palette=halloween-dark
-            dist/winter-dark.svg?palette=winter-dark
-            dist/one-dark-pro.svg?palette=one-dark-pro
-            dist/synthwave.svg?palette=synthwave
-            dist/dracula.svg?palette=dracula
-            dist/monokai.svg?palette=monokai
-            dist/nord.svg?palette=nord
-            dist/tokyo-night.svg?palette=tokyo-night
-            dist/catppuccin.svg?palette=catppuccin
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
