@@ -1,4 +1,4 @@
-name: generate snake animations
+name: generate all palette svgs (light + dark)
 
 on:
   schedule:
@@ -16,21 +16,32 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - name: generate snake animations (light=gif, dark=svg)
+      - name: generate snake animations (all palettes)
         uses: RS-SaJiD/snake@main
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-light.gif?palette=github-light
-            dist/gitlab-light.gif?palette=gitlab-light
-            dist/forgejo-light.gif?palette=forgejo-light
-            dist/codeberg-light.gif?palette=codeberg-light
-            dist/red-github-light.gif?palette=red-github-light
-            dist/halloween-light.gif?palette=halloween-light
-            dist/winter-light.gif?palette=winter-light
             dist/github-dark.svg?palette=github-dark
+            dist/github-light.svg?palette=github-light
+            dist/red-github-dark.svg?palette=red-github-dark
+            dist/red-github-light.svg?palette=red-github-light
+            dist/halloween-dark.svg?palette=halloween-dark
+            dist/halloween-light.svg?palette=halloween-light
+            dist/winter-dark.svg?palette=winter-dark
+            dist/winter-light.svg?palette=winter-light
+            dist/one-dark-pro.svg?palette=one-dark-pro
+            dist/synthwave.svg?palette=synthwave
+            dist/dracula.svg?palette=dracula
+            dist/monokai.svg?palette=monokai
+            dist/nord.svg?palette=nord
+            dist/tokyo-night.svg?palette=tokyo-night
+            dist/catppuccin.svg?palette=catppuccin
             dist/gitlab-dark.svg?palette=gitlab-dark
-
+            dist/gitlab-light.svg?palette=gitlab-light
+            dist/forgejo-dark.svg?palette=forgejo-dark
+            dist/forgejo-light.svg?palette=forgejo-light
+            dist/codeberg-dark.svg?palette=codeberg-dark
+            dist/codeberg-light.svg?palette=codeberg-light
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
