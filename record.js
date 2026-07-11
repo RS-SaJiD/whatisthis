@@ -16,7 +16,7 @@ const { chromium } = require('playwright');
   const page = await context.newPage();
   
   // তোমার টার্গেট ওয়েবসাইট
-  await page.goto('https://example.com'); 
+  await page.goto('https://neophinix.988311.xyz/BluePhinix'); 
 
   // ২০ সেকেন্ড (২০,০০০ মিলিসেকেন্ড) অপেক্ষা করা রেকর্ডিংয়ের জন্য
   await page.waitForTimeout(20000); 
