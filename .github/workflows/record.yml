@@ -1,7 +1,7 @@
 name: Wayback Download
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   download:
@@ -16,7 +16,7 @@ jobs:
         run: gem install wayback_machine_downloader
 
       - name: Download site
-        run: wayback_machine_downloader https://web.archive.org/web/20240215144406/https://aniwatch.to/
+        run: wayback_machine_downloader https://aniwatch.to/ --from 20240215144406 --to 20240215144406
 
       - name: Upload as artifact
         uses: actions/upload-artifact@v4
