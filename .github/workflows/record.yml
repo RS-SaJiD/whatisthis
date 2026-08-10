@@ -18,6 +18,15 @@ jobs:
       - name: Download site
         run: wayback_machine_downloader https://aniwatch.to/ --from 20240215144406 --to 20240215144406
 
+      - name: Fix gzip-compressed files
+        run: |
+          find websites/ -type f | while read -r f; do
+            if file "$f" | grep -q "gzip compressed"; then
+              echo "Decompressing: $f"
+              gunzip -c "$f" > "$f.tmp" && mv "$f.tmp" "$f"
+            fi
+          done
+
       - name: Upload as artifact
         uses: actions/upload-artifact@v4
         with:
